@@ -1,4 +1,4 @@
-export const make = [
+export const makes = [
   'Acura',
   'Alfa Romeo',
   'Aston Martin',
