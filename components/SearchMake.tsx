@@ -48,20 +48,26 @@ const SearchMake = ({ make, setMake }: SearchMakeProps) => {
             afterLeave={() => setQuery('')}
           >
             <Combobox.Options>
-              {filteredMake.map(item => (
-                <Combobox.Option
-                  key={item}
-                  className={({ active }) =>
-                    `relative search-make__option ${
-                      active ? 'bg-primary-blue text-white' : 'text-gray-900'
-                    }
-                    `
-                  }
-                  value={item}
-                >
-                  {item}
+              {filteredMake.length === 0 && query !== '' ? (
+                <Combobox.Option value={query} className='search-make__option'>
+                  Nothing found.
                 </Combobox.Option>
-              ))}
+              ) : (
+                filteredMake.map(item => (
+                  <Combobox.Option
+                    key={item}
+                    className={({ active }) =>
+                      `relative search-make__option ${
+                        active ? 'bg-primary-blue text-white' : 'text-gray-900'
+                      }
+                    `
+                    }
+                    value={item}
+                  >
+                    {item}
+                  </Combobox.Option>
+                ))
+              )}
             </Combobox.Options>
           </Transition>
         </div>
