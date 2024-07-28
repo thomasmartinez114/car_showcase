@@ -21,7 +21,7 @@ const SearchMake = ({ make, setMake }: SearchMakeProps) => {
 
   return (
     <div className='search-make'>
-      <Combobox>
+      <Combobox value={make} onChange={setMake}>
         <div className='relative w-full'>
           <Combobox.Button className='absolute top-[14px]'>
             <Image
@@ -66,12 +66,20 @@ const SearchMake = ({ make, setMake }: SearchMakeProps) => {
                   >
                     {({ selected, active }) => (
                       <>
-                        <span className={`block truncate ${selected ? 'font-medium' : 'font-normal'}`}>
+                        <span
+                          className={`block truncate ${
+                            selected ? 'font-medium' : 'font-normal'
+                          }`}
+                        >
                           {item}
-                          </span>
-                          {selected ? (
-                            <span className={`absolute inset-y-0 left-0 flex items-center pl-3 ${active ? 'text-white' : 'text-teal-600'}`}>
-                            </span>) : null}
+                        </span>
+                        {selected ? (
+                          <span
+                            className={`absolute inset-y-0 left-0 flex items-center pl-3 ${
+                              active ? 'text-white' : 'text-teal-600'
+                            }`}
+                          ></span>
+                        ) : null}
                       </>
                     )}
                   </Combobox.Option>
