@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import SearchBar from './SearchBar';
 import CustomFilter from './CustomFilter';
-import SearchMakes from './SearchMakes';
+import SearchMake from './SearchMake';
 
 export {
   Hero,
@@ -13,5 +13,5 @@ export {
   Footer,
   SearchBar,
   CustomFilter,
-  SearchMakes,
+  SearchMake,
 };
