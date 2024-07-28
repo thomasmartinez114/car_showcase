@@ -1,19 +1,16 @@
 'use client';
 
 import { useState } from 'react';
-import { SearchManufacturer } from './';
+import { SearchMakes } from './';
 
 const SearchBar = () => {
-  const [manufacturer, setManufacturer] = useState('');
+  const [makes, setMakes] = useState('');
   const handleSearch = () => {};
 
   return (
     <form onSubmit={handleSearch} className='searchbar'>
       <div className='searchbar__item'>
-        <SearchManufacturer
-          manufacturer={manufacturer}
-          setManufacturer={setManufacturer}
-        />
+        <SearchMakes makes={makes} setMakes={setMakes} />
       </div>
     </form>
   );
