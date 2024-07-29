@@ -1,9 +1,32 @@
-import React from 'react'
+'use client';
 
-const CarCard = () => {
-  return (
-    <div>CarCard</div>
-  )
+import { useState } from 'react';
+import Image from 'next/image';
+import { CarProps } from '@/types';
+import { calculateCarRent } from '@/utils';
+
+interface CarCardProps {
+  car: CarProps;
 }
 
-export default CarCard
+const CarCard = ({ car }: CarCardProps) => {
+  const { city_mpg, year, make, model, transmission, drive } = car; // destructure car props
+
+  const carRent = calculateCarRent(city_mpg, year);
+
+  return (
+    <div className='car-card group'>
+      <div className='car-card__content'>
+        <h2 className='car-card__content-title'>
+          {make} {model}
+        </h2>
+      </div>
+
+      <p>
+        <span>{carRent}</span>
+      </p>
+    </div>
+  );
+};
+
+export default CarCard;
