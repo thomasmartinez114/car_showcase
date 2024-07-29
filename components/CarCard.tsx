@@ -22,8 +22,10 @@ const CarCard = ({ car }: CarCardProps) => {
         </h2>
       </div>
 
-      <p>
-        <span>{carRent}</span>
+      <p className='flex mt-6 text-[32px] font-extrabold'>
+        <span className='self-start text-[14px] font-semibold'>$</span>
+        {carRent}
+        <span className='self-end font-medium text-[14px]'>/day</span>
       </p>
     </div>
   );
