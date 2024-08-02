@@ -53,6 +53,7 @@ export interface OptionProps {
   value: string;
 }
 
+// CustomFilterProps
 export interface CustomFilterProps {
   title: string;
   options: OptionProps[];
