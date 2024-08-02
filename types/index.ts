@@ -15,6 +15,7 @@ export interface CarProps {
   year: number;
 }
 
+// FilterProps
 export interface FilterProps {
   make?: string;
   year?: number;
