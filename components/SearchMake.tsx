@@ -5,7 +5,7 @@ import { Combobox, Transition } from '@headlessui/react';
 import Image from 'next/image';
 import { makes } from '@/constants'; // import make
 
-const SearchMake = ({ make, setMake }: SearchMakeProps) => {
+const SearchMake = ({ selected, setSelected }: SearchMakeProps) => {
   const [query, setQuery] = useState('');
 
   // set users search to lowercase and remove any blank spaces, remove blank spaces from the search as well
@@ -21,7 +21,7 @@ const SearchMake = ({ make, setMake }: SearchMakeProps) => {
 
   return (
     <div className='search-make'>
-      <Combobox value={make} onChange={setMake}>
+      <Combobox value={selected} onChange={setSelected}>
         <div className='relative w-full'>
           <Combobox.Button className='absolute top-[14px]'>
             <Image
