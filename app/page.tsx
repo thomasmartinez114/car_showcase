@@ -11,7 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   // search states
-  const [make, setmake] = useState('');
+  const [make, setMake] = useState('');
   const [model, setModel] = useState('');
 
   // filter states
@@ -60,21 +60,37 @@ export default function Home() {
         </div>
 
         <div className='home__filters'>
-          <SearchBar />
+          <SearchBar setMake={setMake} setModel={setModel} />
 
           <div className='home__filter-container'>
-            <CustomFilter title='fuel' options={fuels} />
-            <CustomFilter title='year' options={yearsOfProduction} />
+            <CustomFilter title='fuel' options={fuels} setFilter={setFuel} />
+            <CustomFilter
+              title='year'
+              options={yearsOfProduction}
+              setFilter={setYear}
+            />
           </div>
         </div>
 
-        {!isDataEmpty ? (
+        {allCars.length > 0 ? (
           <section>
             <div className='home__cars-wrapper'>
               {allCars?.map(car => (
                 <CarCard car={car} />
               ))}
             </div>
+
+            {loading && (
+              <div className='mt-16 w-full flex-center'>
+                <Image
+                  src='/loader.svg'
+                  alt='loader'
+                  width={50}
+                  height={50}
+                  className='object-contain'
+                />
+              </div>
+            )}
 
             <ShowMore
               pageNumber={(limit || 10) / 10}
