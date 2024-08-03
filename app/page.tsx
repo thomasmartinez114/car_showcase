@@ -42,6 +42,7 @@ export default function Home() {
 
   useEffect(() => {
     // fetch cars
+    // console.log(fuel, year, limit, make, model);
     getCars();
   }, [fuel, year, limit, make, model]);
 
@@ -93,7 +94,7 @@ export default function Home() {
             )}
 
             <ShowMore
-              pageNumber={(limit) / 10}
+              pageNumber={limit / 10}
               isNext={limit > allCars.length}
               setLimit={setLimit}
             />
